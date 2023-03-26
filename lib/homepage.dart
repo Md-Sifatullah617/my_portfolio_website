@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 backgroundImage: AssetImage("/images/pp.jpg"),
                               ),
                               const Spacer(),
-                              Text('Md. Sifatullah', style: Theme.of(context).textTheme.subtitle2,),
+                              Text('Md. Sifatullah', style: Theme.of(context).textTheme.titleSmall,),
                               const Text('Flutter Developer & Founder of\nesuIT', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w200, height: 1.5),
                               ),
                               const Spacer(flex: 2,),
