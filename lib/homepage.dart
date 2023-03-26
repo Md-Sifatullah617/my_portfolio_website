@@ -27,11 +27,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Container(
                           color: const Color(0xff242430),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              CircleAvatar(
+                              const Spacer(flex: 2,),
+                              const CircleAvatar(
                                 radius: 50,
                                 backgroundImage: AssetImage("/images/pp.jpg"),
-                              )
+                              ),
+                              Text('Md. Sifatullah', style: Theme.of(context).textTheme.subtitle2,),
+                              const Text('Flutter Developer & Founder of\nThe Flutter Way', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.w200, height: 1.5),
+                              ),
+                              const Spacer(flex: 2,),
                             ],
                           ),
                         ),
