@@ -27,7 +27,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Container(
                           color: const Color(0xff242430),
                           child: Column(
-                            children: [],
+                            children: [
+                              CircleAvatar(
+                                radius: 50,
+                                backgroundImage: AssetImage("/images/pp.jpg"),
+                              )
+                            ],
                           ),
                         ),
                       )
