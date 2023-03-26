@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio_website/constents.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -11,8 +12,39 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Portfolio')),
-      
+      body: Center(
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: maxWidth),
+          child: Row(
+            children: [
+              Expanded(
+                flex: 2,
+                child: Drawer(
+                  child: Column(
+                    children: [
+                      AspectRatio(
+                        aspectRatio: 1.23,
+                        child: Container(
+                          color: const Color(0xff242430),
+                          child: Column(
+                            children: [],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 7,
+                child: Container(
+                  color: colorBlue,
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio_website/constents.dart';
 
 import 'homepage.dart';
 
@@ -15,9 +17,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Portfolio of Md. Sifatullah',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData.dark().copyWith(
+          primaryColor: primaryColor,
+          scaffoldBackgroundColor: bgColor,
+          canvasColor: bgColor,
+          textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
+              .apply(bodyColor: colorWhite)
+              .copyWith(
+                  bodyText1: const TextStyle(color: bodyTextColor),
+                  bodyText2: const TextStyle(color: bodyTextColor))),
       home: const MyHomePage(),
     );
   }
