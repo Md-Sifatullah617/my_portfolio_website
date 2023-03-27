@@ -32,37 +32,43 @@ class NaveSideBar extends StatelessWidget {
                     title: 'Age',
                     text: '22',
                   ),
-                  const Divider(),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: defaultPadding),
-                    child: Text(
-                      "Skills",
-                      style: Theme.of(context).textTheme.titleSmall,
-                    ),
-                  ),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AspectRatio(
-                        aspectRatio: 1,
-                        child: TweenAnimationBuilder(
-                            tween: Tween<double>(begin: 0, end: 1),
-                            duration: defaultDuration,
-                            builder: (context, double value, child) =>
-                                Stack(
-                                  fit: StackFit.expand,
-                                  children: [
-                                    CircularProgressIndicator(
-                                      value: value,
-                                      color: primaryColor,
-                                      backgroundColor: darkColor,
-                                    ),
-                                    Center(child: Text("${value*100}%", style: Theme.of(context).textTheme.titleMedium,))
-                                  ],
-                                )),
+                      const Divider(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: defaultPadding),
+                        child: Text(
+                          "Skills",
+                          style: Theme.of(context).textTheme.titleSmall,
+                        ),
                       ),
-                      const SizedBox(height: defaultPadding/2,),
-                      Text('Flutter', style: Theme.of(context).textTheme.titleSmall,)
+                      Row(
+                        children: const [
+                          Expanded(
+                              child: AnimatedCircularSkill(
+                            label: 'Flutter',
+                            percentage: 0.8,
+                          )),
+                          SizedBox(
+                            width: defaultPadding,
+                          ),
+                          Expanded(
+                              child: AnimatedCircularSkill(
+                            label: 'Firebase',
+                            percentage: 0.75,
+                          )),
+                          SizedBox(
+                            width: defaultPadding,
+                          ),
+                          Expanded(
+                              child: AnimatedCircularSkill(
+                            label: 'C/C++',
+                            percentage: 0.6,
+                          )),
+                        ],
+                      )
                     ],
                   )
                 ],
