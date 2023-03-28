@@ -32,51 +32,96 @@ class NaveSideBar extends StatelessWidget {
                     title: 'Age',
                     text: '22',
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Divider(),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: defaultPadding),
-                        child: Text(
-                          "Skills",
-                          style: Theme.of(context).textTheme.titleSmall,
-                        ),
-                      ),
-                      Row(
-                        children: const [
-                          Expanded(
-                              child: AnimatedCircularSkill(
-                            label: 'Flutter',
-                            percentage: 0.8,
-                          )),
-                          SizedBox(
-                            width: defaultPadding,
-                          ),
-                          Expanded(
-                              child: AnimatedCircularSkill(
-                            label: 'Firebase',
-                            percentage: 0.75,
-                          )),
-                          SizedBox(
-                            width: defaultPadding,
-                          ),
-                          Expanded(
-                              child: AnimatedCircularSkill(
-                            label: 'C/C++',
-                            percentage: 0.6,
-                          )),
-                        ],
-                      )
-                    ],
-                  )
+                  const Skills(),
+                  const SizedBox(
+                    height: defaultPadding,
+                  ),
+                  const Coding(),
                 ],
               ),
             ),
           ))
         ],
       ),
+    );
+  }
+}
+
+class Coding extends StatelessWidget {
+  const Coding({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Divider(),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+          child: Text(
+            'Coding',
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
+        ),
+        TweenAnimationBuilder(
+            tween: Tween<double>(begin: 0, end: 0.8),
+            duration: defaultDuration,
+            builder: (context, double value, child) => LinearProgressIndicator(
+                  value: value,
+                  color: primaryColor,
+                  backgroundColor: darkColor,
+                ))
+      ],
+    );
+  }
+}
+
+class Skills extends StatelessWidget {
+  const Skills({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Divider(),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+          child: Text(
+            "Skills",
+            style: Theme.of(context).textTheme.titleSmall,
+          ),
+        ),
+        Row(
+          children: const [
+            Expanded(
+                child: AnimatedCircularSkill(
+              label: 'Flutter',
+              percentage: 0.8,
+            )),
+            SizedBox(
+              width: defaultPadding,
+            ),
+            Expanded(
+                child: AnimatedCircularSkill(
+              label: 'Firebase',
+              percentage: 0.75,
+            )),
+            SizedBox(
+              width: defaultPadding,
+            ),
+            Expanded(
+                child: AnimatedCircularSkill(
+              label: 'C/C++',
+              percentage: 0.6,
+            )),
+          ],
+        )
+      ],
     );
   }
 }
