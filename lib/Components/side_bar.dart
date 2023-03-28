@@ -68,11 +68,23 @@ class Coding extends StatelessWidget {
         TweenAnimationBuilder(
             tween: Tween<double>(begin: 0, end: 0.8),
             duration: defaultDuration,
-            builder: (context, double value, child) => LinearProgressIndicator(
-                  value: value,
-                  color: primaryColor,
-                  backgroundColor: darkColor,
-                ))
+            builder: (context, double value, child) => Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text('Dart', style: TextStyle(color: colorWhite),),
+                    Text('${(value*100).toInt()}%')
+                  ],
+                ),
+                const SizedBox(height: defaultPadding/2,),
+                LinearProgressIndicator(
+                      value: value,
+                      color: primaryColor,
+                      backgroundColor: darkColor,
+                    ),
+              ],
+            ))
       ],
     );
   }
