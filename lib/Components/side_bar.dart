@@ -65,27 +65,46 @@ class Coding extends StatelessWidget {
             style: Theme.of(context).textTheme.titleSmall,
           ),
         ),
-        TweenAnimationBuilder(
-            tween: Tween<double>(begin: 0, end: 0.8),
-            duration: defaultDuration,
-            builder: (context, double value, child) => Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text('Dart', style: TextStyle(color: colorWhite),),
-                    Text('${(value*100).toInt()}%')
-                  ],
-                ),
-                const SizedBox(height: defaultPadding/2,),
-                LinearProgressIndicator(
-                      value: value,
-                      color: primaryColor,
-                      backgroundColor: darkColor,
-                    ),
-              ],
-            ))
+        const AnimatedCodingSkill(codingSkill: 'Dart', percentage: 0.8,),
+        const AnimatedCodingSkill(codingSkill: 'C/C++', percentage: 0.75,),
+        const AnimatedCodingSkill(codingSkill: 'Python', percentage: 0.55,),
+        const AnimatedCodingSkill(codingSkill: 'HTML', percentage: 0.9,),
+        const AnimatedCodingSkill(codingSkill: 'CSS', percentage: 0.7,)
       ],
+    );
+  }
+}
+
+class AnimatedCodingSkill extends StatelessWidget {
+  const AnimatedCodingSkill({
+    super.key, required this.codingSkill, required this.percentage,
+  });
+  final String codingSkill;
+  final double percentage;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: defaultPadding),
+      child: TweenAnimationBuilder(
+          tween: Tween<double>(begin: 0, end: percentage),
+          duration: defaultDuration,
+          builder: (context, double value, child) => Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(codingSkill, style: const TextStyle(color: colorWhite),),
+                  Text('${(value*100).toInt()}%')
+                ],
+              ),
+              const SizedBox(height: defaultPadding/2,),
+              LinearProgressIndicator(
+                    value: value,
+                    color: primaryColor,
+                    backgroundColor: darkColor,
+                  ),
+            ],
+          )),
     );
   }
 }
@@ -128,7 +147,7 @@ class Skills extends StatelessWidget {
             ),
             Expanded(
                 child: AnimatedCircularSkill(
-              label: 'C/C++',
+              label: 'API',
               percentage: 0.6,
             )),
           ],
