@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio_website/constents.dart';
+import 'package:my_portfolio_website/home/home_screen.dart';
 
-import 'homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
               .copyWith(
                   bodyLarge: const TextStyle(color: bodyTextColor),
                   bodyMedium: const TextStyle(color: bodyTextColor))),
-      home: const MyHomePage(),
+      home: const HomeScreen(),
     );
   }
 }

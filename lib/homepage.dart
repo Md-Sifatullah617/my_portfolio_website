@@ -25,9 +25,13 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Expanded(
                 flex: 7,
-                child: Container(
-                  color: colorBlue,
-                ),
+                child: SingleChildScrollView(
+                    child: Column(
+                        children: [
+                            
+                        ],
+                    ),
+                )
               )
             ],
           ),
