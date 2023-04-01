@@ -3,14 +3,11 @@ import 'package:my_portfolio_website/constents.dart';
 
 import 'Components/side_bar.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class MyHomePage extends StatelessWidget {
+   const MyHomePage({super.key, required this.children});
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
+  final List<Widget> children;
 
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,16 +20,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 flex: 2,
                 child: NaveSideBar(),
               ),
+              const SizedBox(width: defaultPadding,),
               Expanded(
-                flex: 7,
-                child: SingleChildScrollView(
+                  flex: 7,
+                  child: SingleChildScrollView(
                     child: Column(
-                        children: [
-                            
-                        ],
+                      children: [
+                        ...children
+                      ],
                     ),
-                )
-              )
+                  ))
             ],
           ),
         ),
@@ -40,5 +37,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
