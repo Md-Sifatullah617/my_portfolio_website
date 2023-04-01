@@ -15,6 +15,7 @@ class MyHomePage extends StatelessWidget {
         child: Container(
           constraints: const BoxConstraints(maxWidth: maxWidth),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Expanded(
                 flex: 2,
