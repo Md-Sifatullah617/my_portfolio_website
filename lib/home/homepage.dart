@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio_website/constents.dart';
 
-import 'Components/side_bar.dart';
+import '../Components/side_bar.dart';
 
 class MyHomePage extends StatelessWidget {
    const MyHomePage({super.key, required this.children});
