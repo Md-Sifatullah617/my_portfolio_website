@@ -28,7 +28,6 @@ class SectionHighlight extends StatelessWidget {
           value: 54,
           valueNmae: 'Stars',
         ),
-        SizedBox(height: defaultPadding,)
       ],
     );
   }

@@ -10,12 +10,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MyHomePage(children: [
+    return MyHomePage(children: [
       HOmeBanner(),
       SizedBox(
         height: defaultPadding,
       ),
-      SectionHighlight()
+      SectionHighlight(),
+      SizedBox(
+        height: defaultPadding,
+      ),
+      Text('My Projects', style: Theme.of(context).textTheme.titleLarge,),
+      
     ]);
   }
 }
