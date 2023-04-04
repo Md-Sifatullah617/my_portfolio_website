@@ -24,7 +24,7 @@ class MyHomePage extends StatelessWidget {
               ),
               backgroundColor: bgColor,
             ),
-            drawer: const NaveSideBar(),
+      drawer: const NaveSideBar(),
       body: Center(
         child: Container(
           constraints: const BoxConstraints(maxWidth: maxWidth),
