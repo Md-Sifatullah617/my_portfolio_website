@@ -11,12 +11,15 @@ class SectionProject extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'My Projects',
           style: Theme.of(context).textTheme.titleLarge,
         ),
-        const SizedBox(height: defaultPadding,),
+        const SizedBox(
+          height: defaultPadding,
+        ),
         GridView.builder(
             shrinkWrap: true,
             itemCount: projectDetails.length,
@@ -25,7 +28,9 @@ class SectionProject extends StatelessWidget {
                 mainAxisSpacing: defaultPadding,
                 crossAxisSpacing: defaultPadding,
                 childAspectRatio: 1.3),
-            itemBuilder: (context, index) => ProjectCard(project: projectDetails[index],)),
+            itemBuilder: (context, index) => ProjectCard(
+                  project: projectDetails[index],
+                )),
       ],
     );
   }
@@ -33,7 +38,8 @@ class SectionProject extends StatelessWidget {
 
 class ProjectCard extends StatelessWidget {
   const ProjectCard({
-    super.key, required this.project,
+    super.key,
+    required this.project,
   });
   final Projects project;
   @override
@@ -58,7 +64,12 @@ class ProjectCard extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           const Spacer(),
-          TextButton(onPressed: (){}, child: const Text("Read More>>", style: TextStyle(color: primaryColor),))
+          TextButton(
+              onPressed: () {},
+              child: const Text(
+                "Read More>>",
+                style: TextStyle(color: primaryColor),
+              ))
         ],
       ),
     );

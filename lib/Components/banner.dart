@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:my_portfolio_website/responsive.dart';
 
 import '../constents.dart';
 
@@ -28,17 +29,26 @@ class HOmeBanner extends StatelessWidget {
               children: [
                 Text(
                   "Discover my Amaging \nArt Space!",
-                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                  style: Responsive.isDesktop(context)
+                      ? Theme.of(context).textTheme.displaySmall!.copyWith(
+                          color: Colors.white, fontWeight: FontWeight.bold)
+                      : Theme.of(context).textTheme.headlineSmall!.copyWith(
+                          color: Colors.white, fontWeight: FontWeight.bold),
                 ),
+                if (Responsive.isMobileLarge(context))
+                  const SizedBox(
+                    height: defaultPadding / 2,
+                  ),
                 DefaultTextStyle(
                   style: Theme.of(context).textTheme.titleMedium!,
                   child: Row(
                     children: [
-                      const FlutterTextStyle(),
-                      const SizedBox(
-                        width: defaultPadding / 2,
-                      ),
+                      if (!Responsive.isMobileLarge(context))
+                        const FlutterTextStyle(),
+                      if (!Responsive.isMobileLarge(context))
+                        const SizedBox(
+                          width: defaultPadding / 2,
+                        ),
                       const Text('I build '),
                       AnimatedTextKit(repeatForever: true, animatedTexts: [
                         TyperAnimatedText("responsive web and mobile app.",
@@ -51,15 +61,27 @@ class HOmeBanner extends StatelessWidget {
                       const SizedBox(
                         width: defaultPadding / 2,
                       ),
-                      const FlutterTextStyle(),
+                      if (!Responsive.isMobileLarge(context))
+                        const FlutterTextStyle(),
                     ],
                   ),
                 ),
-                const SizedBox(height: defaultPadding,),
-                ElevatedButton(onPressed: () {}, style: TextButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: defaultPadding, horizontal: defaultPadding*2),
-                  backgroundColor: primaryColor
-                ),child: const Text("Explore Now", style: TextStyle(color: darkColor),))
+                if (!Responsive.isMobileLarge(context))
+                  const SizedBox(
+                    height: defaultPadding / 2,
+                  ),
+                if (!Responsive.isMobileLarge(context))
+                  ElevatedButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: defaultPadding,
+                              horizontal: defaultPadding * 2),
+                          backgroundColor: primaryColor),
+                      child: const Text(
+                        "Explore Now",
+                        style: TextStyle(color: darkColor),
+                      ))
               ],
             ),
           )
